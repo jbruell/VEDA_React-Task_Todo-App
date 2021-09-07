@@ -12,7 +12,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    console.log(tasks);
   }, [tasks]);
 
   const addTask = input => {
@@ -25,8 +24,12 @@ function App() {
   }
 
   const toggleCheckedCallback = task => {
-    const persistedTask = tasks.filter(t => t.id === task.id);
-
+    const newTasks = [...tasks];
+    newTasks.filter(t => t.id === task.id).map(item => {
+      item.checked = !item.checked;
+      return item;
+    });
+    setTasks(newTasks);
   }
 
   return (
