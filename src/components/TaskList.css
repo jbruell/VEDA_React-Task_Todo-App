@@ -1,6 +1,10 @@
 .tasklist-wrapper {
     flex: 1;
     overflow-y: scroll;
-    
+
     padding: .5rem;
+}
+
+.tasklist-wrapper > * + * {
+    margin-top: 1rem;
 }

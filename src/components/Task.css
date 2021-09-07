@@ -1,6 +1,7 @@
 .task-wrapper {
     display: flex;
     align-items: center;
+    gap: .5rem;
     
     height: 3rem;
     border-width: 0;
@@ -11,12 +12,9 @@
     box-shadow: #32325d20 0px 3px 10px 0px;
 }
 
-.task-wrapper + .task-wrapper {
-    margin-top: 1rem;
-}
-
 .task-text {
     flex: 1;
+    text-overflow: ellipsis;
 }
 .task-text.checked {
     color: #bbbbbb;

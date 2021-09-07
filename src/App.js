@@ -32,10 +32,18 @@ function App() {
     setTasks(newTasks);
   }
 
+  const updateTask = task => {
+    const newTasks = [...tasks].filter(t => t.id !== task.id);
+    newTasks.unshift(task);
+    setTasks(newTasks);
+  }
+
   return (
     <div className="app">
       <Header />
-      <TaskList tasks={tasks} toggleCheckedCallback={toggleCheckedCallback} />
+      <TaskList tasks={tasks} 
+        toggleCheckedCallback={toggleCheckedCallback}
+        updateTask={updateTask} />
       <Footer addTask={addTask} />
     </div>
   );
