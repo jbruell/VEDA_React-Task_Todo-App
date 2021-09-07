@@ -1,0 +1,16 @@
+.header-wrapper {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
+    gap: 1rem;
+
+    padding: .25rem .5rem;
+}
+
+.logo {
+    max-width: 8rem;
+}
+
+.app-name {
+    font-weight: 300;
+}
