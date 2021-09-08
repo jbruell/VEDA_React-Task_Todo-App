@@ -14,6 +14,7 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  // utility methods START
   const addTask = input => {
     setTasks([...tasks, {
       id: new Date().getTime(),
@@ -33,17 +34,23 @@ function App() {
   }
 
   const updateTask = task => {
-    const newTasks = [...tasks].filter(t => t.id !== task.id);
-    newTasks.unshift(task);
+    const newTasks = [...tasks].map(t => t.id === task.id ? task : t);
     setTasks(newTasks);
   }
+
+  const deleteTask = task => {
+    const newTasks = [...tasks].filter(t => t.id !== task.id);
+    setTasks(newTasks);
+  }
+  // utility methods END
 
   return (
     <div className="app">
       <Header />
       <TaskList tasks={tasks} 
         toggleCheckedCallback={toggleCheckedCallback}
-        updateTask={updateTask} />
+        updateTask={updateTask}
+        deleteTask={deleteTask} />
       <Footer addTask={addTask} />
     </div>
   );

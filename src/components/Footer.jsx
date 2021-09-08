@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Footer.css";
+import "../utils.css";
 
 const Footer = ({ addTask }) => {
     const [input, setInput] = useState("");
